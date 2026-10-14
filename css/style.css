@@ -1,0 +1,27 @@
+body {
+  background-color: gainsboro;
+  /* Use a system font, if none are available use an available sans-sarif */
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  
+  
+}
+
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 325px;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  
+}
+
+.card-image{
+    height: 125px;
+    width: 125px;
+    transform: rotateY(90deg); 
+    transition: all ease-in 0.25s;
+    mix-blend-mode: multiply;
+}
