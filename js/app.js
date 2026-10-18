@@ -26,6 +26,14 @@ cardsElement.forEach(function (card) {
 })
 
 
+//function checkForMatch() {
+
+    //Match()
+    
+
+
+//}
+
 function checkForMatch() {
     const firstCard = flippedCards[0]
     const secondCard = flippedCards[1]
@@ -51,6 +59,7 @@ function checkForMatch() {
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
+        //heart += 
         countHearts()
         resetTurn()
 
