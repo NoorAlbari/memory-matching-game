@@ -1,76 +1,88 @@
 
 const cardsElement = document.querySelectorAll('.card')
+const scoreElement = document.querySelector('#score')
+
 let flippedCards = []
-let lockBoard = false
-let match = false
+let boardLocker = false
 let MatchedCards = []
+let hearts = 0
 
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
-        if (lockBoard === true) {
-            return;
+        if (boardLocker === true) {
+            return
+        }
+        if (MatchedCards.includes(card)) {
+            return
         }
         card.classList.toggle('flipped')
         flippedCards.push(card)
         console.log(flippedCards.length)
         if (flippedCards.length === 2) {
-            lockBoard = true
+            boardLocker = true
             checkForMatch()
         }
     })
 })
 
 
-
 function checkForMatch() {
-
-    if (match === true) {
-        lockBoard = false
-    }
-    Match()
-
-
-
-}
-
-function Match() {
-    const firstCard = flippedCards[0];
-    const secondCard = flippedCards[1];
-    if (firstCard.classList.contains('heart') && secondCard.classList.contains('heart')) {
-        //lockBoard = true
-        match = true
+    const firstCard = flippedCards[0]
+    const secondCard = flippedCards[1]
+    if (firstCard.classList.contains('heart') && secondCard.classList.contains('heart')||firstCard.classList.contains('50') && secondCard.classList.contains('50')) {
+        boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
+        countHearts()
+        resetTurn()
+
+    }
+
+
+    else  if (firstCard.classList.contains('heart') && secondCard.classList.contains('heart')||firstCard.classList.contains('sad') && secondCard.classList.contains('sad')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        countHearts()
+        resetTurn()
 
     }
 
     else {
-        Mismatch()
+        checkForMismatch()
     }
 
-    resetTurn()
+
 }
 
-
-
-function Mismatch() {
+function checkForMismatch() {
     setTimeout(function () {
-        flippedCards[0].classList.remove("flipped");
-        flippedCards[1].classList.remove("flipped");
+        flippedCards[0].classList.remove("flipped")
+        flippedCards[1].classList.remove("flipped")
         console.log("The Cards Do Not Match")
         flippedCards = []
-        lockBoard = false
-    }, 1000);
+        boardLocker = false
+    }, 1000)
 }
 
 
 function resetTurn() {
     flippedCards = []
-    lockBoard = false
+    boardLocker = false
+
+}
+
+
+function countHearts() {
+
 
 }
 
