@@ -37,7 +37,7 @@ cardsElement.forEach(function (card) {
 function checkForMatch() {
     const firstCard = flippedCards[0]
     const secondCard = flippedCards[1]
-    if (firstCard.classList.contains('heart') && secondCard.classList.contains('heart')||firstCard.classList.contains('50') && secondCard.classList.contains('50')) {
+    if (firstCard.classList.contains('witch') && secondCard.classList.contains('witch')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -51,7 +51,119 @@ function checkForMatch() {
     }
 
 
-    else  if (firstCard.classList.contains('heart') && secondCard.classList.contains('heart')||firstCard.classList.contains('sad') && secondCard.classList.contains('sad')) {
+    else  if (firstCard.classList.contains('crystal') && secondCard.classList.contains('crystal')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+      else  if (firstCard.classList.contains('frog') && secondCard.classList.contains('frog')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('skull') && secondCard.classList.contains('skull')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('rainbow') && secondCard.classList.contains('rainbow')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('boy') && secondCard.classList.contains('boy')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('bread') && secondCard.classList.contains('bread')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('gain') && secondCard.classList.contains('gain')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        //heart += 
+        countHearts()
+        resetTurn()
+
+    }
+
+       else  if (firstCard.classList.contains('lose') && secondCard.classList.contains('lose')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
