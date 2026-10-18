@@ -28,8 +28,8 @@ cardsElement.forEach(function (card) {
 
 //function checkForMatch() {
 
-    //Match()
-    
+//Match()
+
 
 
 //}
@@ -37,11 +37,14 @@ cardsElement.forEach(function (card) {
 function checkForMatch() {
     const firstCard = flippedCards[0]
     const secondCard = flippedCards[1]
-    if (firstCard.classList.contains('witch') && secondCard.classList.contains('witch')) {
+    
+    if (firstCard.classList.contains('witch') && secondCard.classList.contains('witch') && firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        //heart = 20
+        //heart += 
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -51,7 +54,7 @@ function checkForMatch() {
     }
 
 
-    else  if (firstCard.classList.contains('crystal') && secondCard.classList.contains('crystal')) {
+    else if (firstCard.classList.contains('crystal') && secondCard.classList.contains('crystal')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -65,7 +68,7 @@ function checkForMatch() {
 
     }
 
-      else  if (firstCard.classList.contains('frog') && secondCard.classList.contains('frog')) {
+    else if (firstCard.classList.contains('frog') && secondCard.classList.contains('frog')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -79,7 +82,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('skull') && secondCard.classList.contains('skull')) {
+    else if (firstCard.classList.contains('skull') && secondCard.classList.contains('skull')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -93,7 +96,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('rainbow') && secondCard.classList.contains('rainbow')) {
+    else if (firstCard.classList.contains('rainbow') && secondCard.classList.contains('rainbow')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -107,7 +110,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn')) {
+    else if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -121,7 +124,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('boy') && secondCard.classList.contains('boy')) {
+    else if (firstCard.classList.contains('boy') && secondCard.classList.contains('boy')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -135,7 +138,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('bread') && secondCard.classList.contains('bread')) {
+    else if (firstCard.classList.contains('bread') && secondCard.classList.contains('bread')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -149,7 +152,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('gain') && secondCard.classList.contains('gain')) {
+    else if (firstCard.classList.contains('gain') && secondCard.classList.contains('gain')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
@@ -163,7 +166,7 @@ function checkForMatch() {
 
     }
 
-       else  if (firstCard.classList.contains('lose') && secondCard.classList.contains('lose')) {
+    else if (firstCard.classList.contains('lose') && secondCard.classList.contains('lose')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
