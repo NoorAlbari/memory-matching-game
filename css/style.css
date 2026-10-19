@@ -11,52 +11,58 @@ body {
 }
 
 .card {
-      position: relative;
-      width: 240px;
-      height: 360px;
-      background: #2b1d2f;
-      border: 4px solid #1c1320;
-      border-radius: 12px;
-      overflow: hidden;
-      font-family: 'Trebuchet MS', 'Impact', sans-serif;
-    }
+    position: relative;
+    width: 240px;
+    height: 360px;
+    background: #2b1d2f;
+    border: 4px solid #1c1320;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Trebuchet MS', 'Impact', sans-serif;
+}
 
-    /* Heart Counter Badge */
-    .heart-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: #3b2a45;
-      padding: 4px 10px 4px 6px;
-      border-radius: 14px;
-      border: 3px solid #190f1d;
-      box-shadow: 0 3px 0 #120914; /* retro hard drop shadow */
-      user-select: none;
-    }
+/* Heart Counter Badge */
+.heart-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #3b2a45;
+    padding: 4px 10px 4px 6px;
+    border-radius: 14px;
+    border: 3px solid #190f1d;
+    box-shadow: 0 3px 0 #120914;
+    /* retro hard drop shadow */
+    user-select: none;
+}
 
-    /* Heart Icon */
-    .heart-icon {
-      width: 22px;
-      height: 22px;
-      fill: #e8a573;        /* Warm peach/tan fill */
-      stroke: #190f1d;      /* Thick dark outline */
-      stroke-width: 2.5;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-    }
+/* Heart Icon */
+.heart-icon {
+    width: 22px;
+    height: 22px;
+    fill: #e8a573;
+    /* Warm peach/tan fill */
+    stroke: #190f1d;
+    /* Thick dark outline */
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
 
-    /* Count Text */
-    .heart-count {
-      color: #e8a573;
-      font-size: 1.25rem;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.5px;
-      text-shadow: 2px 2px 0 #190f1d; /* comic-style dark outline */
-    }
+/* Count Text */
+.heart-count {
+    color: #e8a573;
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 #190f1d;
+    
+    
+
+}
 
 .game-board {
     display: grid;

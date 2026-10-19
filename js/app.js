@@ -1,11 +1,10 @@
-
 const cardsElement = document.querySelectorAll('.card')
-const scoreElement = document.querySelector('#score')
+const heartCountElement = document.querySelector('.heart-count')
 
 let flippedCards = []
 let boardLocker = false
 let MatchedCards = []
-let hearts = 0
+let heart = 0
 
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
@@ -26,25 +25,17 @@ cardsElement.forEach(function (card) {
 })
 
 
-//function checkForMatch() {
-
-//Match()
-
-
-
-//}
-
 function checkForMatch() {
     const firstCard = flippedCards[0]
     const secondCard = flippedCards[1]
-    
+
     if (firstCard.classList.contains('witch') && secondCard.classList.contains('witch') && firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
-        //heart = 20
-        //heart += 
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -54,11 +45,13 @@ function checkForMatch() {
     }
 
 
-    else if (firstCard.classList.contains('crystal') && secondCard.classList.contains('crystal')) {
+    else if (firstCard.classList.contains('crystal') && secondCard.classList.contains('crystal')&& firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -68,11 +61,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('frog') && secondCard.classList.contains('frog')) {
+    else if (firstCard.classList.contains('frog') && secondCard.classList.contains('frog')&& firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -82,11 +77,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('skull') && secondCard.classList.contains('skull')) {
+    else if (firstCard.classList.contains('skull') && secondCard.classList.contains('skull')&& firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -96,11 +93,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('rainbow') && secondCard.classList.contains('rainbow')) {
+    else if (firstCard.classList.contains('rainbow') && secondCard.classList.contains('rainbow')&& firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -110,11 +109,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn')) {
+    else if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn')&& firstCard.classList.contains('23') && secondCard.classList.contains('23')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -124,11 +125,29 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('boy') && secondCard.classList.contains('boy')) {
+    else if (firstCard.classList.contains('boy') && secondCard.classList.contains('boy')&& firstCard.classList.contains('25') && secondCard.classList.contains('25')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
+        console.log("The Cards Match")
+        console.log(flippedCards)
+        console.log(MatchedCards)
+        
+        countHearts()
+        resetTurn()
+
+    }
+
+    else if (firstCard.classList.contains('bread') && secondCard.classList.contains('bread') && firstCard.classList.contains('20') && secondCard.classList.contains('20')) {
+        boardLocker = true
+        MatchedCards.push(firstCard)
+        MatchedCards.push(secondCard)
+        flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -138,11 +157,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('bread') && secondCard.classList.contains('bread')) {
+    else if (firstCard.classList.contains('gain') && secondCard.classList.contains('gain')&& firstCard.classList.contains('50') && secondCard.classList.contains('50')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
@@ -152,25 +173,13 @@ function checkForMatch() {
 
     }
 
-    else if (firstCard.classList.contains('gain') && secondCard.classList.contains('gain')) {
+    else if (firstCard.classList.contains('lose') && secondCard.classList.contains('lose')&& firstCard.classList.contains('-50') && secondCard.classList.contains('-50')) {
         boardLocker = true
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
-        console.log("The Cards Match")
-        console.log(flippedCards)
-        console.log(MatchedCards)
-        //heart += 
-        countHearts()
-        resetTurn()
-
-    }
-
-    else if (firstCard.classList.contains('lose') && secondCard.classList.contains('lose')) {
-        boardLocker = true
-        MatchedCards.push(firstCard)
-        MatchedCards.push(secondCard)
-        flippedCards = []
+        heart += 20
+        heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
