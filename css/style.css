@@ -1,25 +1,26 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    /*background-color:#3F242A ;*/
+    display: flex;
+    
+}
+
+
 body {
     /*background: #523344;*/
     background-image: url("../cards/background\ image.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    /*position: relative;*/
     color: #ac7c48;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
-.card {
-    position: relative;
-    width: 240px;
-    height: 360px;
-    background: #2b1d2f;
-    border: 4px solid #1c1320;
-    border-radius: 12px;
-    overflow: hidden;
-    font-family: 'Trebuchet MS', 'Impact', sans-serif;
-}
+
 
 /* Heart Counter Badge */
 .heart-badge {
@@ -59,10 +60,11 @@ body {
     line-height: 1;
     letter-spacing: -0.5px;
     text-shadow: 2px 2px 0 #190f1d;
-    
-    
 
 }
+
+
+
 
 .game-board {
     display: grid;
@@ -80,12 +82,14 @@ body {
     padding: 0;
     cursor: pointer;
     perspective: 1000px;
-    border: none;
-    border-radius: 6px;
+    border: 4px solid #1c1320;
+    border-radius: 12px;
     overflow: hidden;
-    background: #523344;
+    /*background: #523344;*/
+    background: #2b1d2f;
 
 }
+
 
 .card img {
     position: absolute;
