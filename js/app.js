@@ -14,6 +14,7 @@ cardsElement.forEach(function (card) {
         if (MatchedCards.includes(card)) {
             return
         }
+
         card.classList.toggle('flipped')
         flippedCards.push(card)
         console.log(flippedCards.length)
@@ -21,7 +22,10 @@ cardsElement.forEach(function (card) {
             boardLocker = true
             checkForMatch()
         }
+
     })
+
+
 })
 
 
@@ -41,6 +45,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+            winAndLose()
+        }
 
     }
 
@@ -55,8 +62,11 @@ function checkForMatch() {
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
-   
+
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -72,6 +82,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -87,6 +100,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -102,6 +118,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -115,8 +134,12 @@ function checkForMatch() {
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
-   
+
         resetTurn()
+
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -132,6 +155,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -147,6 +173,9 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -156,14 +185,16 @@ function checkForMatch() {
         MatchedCards.push(secondCard)
         flippedCards = []
         heart = heart + (heart * 0.5)
-
         heartCountElement.textContent = heart
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
 
-  
+
         resetTurn()
+       if (MatchedCards.length === 20) {
+             winAndLose()
+        }
 
     }
 
@@ -179,8 +210,14 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
+       if (MatchedCards.length === 20) {
+             winAndLose()
+        }
+
 
     }
+
+
 
     else {
         checkForMismatch()
@@ -198,8 +235,14 @@ function checkForMismatch() {
         heart = heart - 10
         heartCountElement.textContent = heart
         console.log("The Cards Do Not Match")
-        
+
+        if (MatchedCards.length === 20) {
+             winAndLose()
+        }
+
     }, 1000)
+
+
 }
 
 
@@ -207,6 +250,19 @@ function resetTurn() {
     flippedCards = []
     boardLocker = false
 
+}
+
+
+function winAndLose() {
+    if (heart >= 200) {
+        console.log("You have WON the Game, Good Job")
+
+    }
+
+    else if (heart < 100) {
+        console.log("You have LOST the Game, Better Luck Next time")
+
+    }
 }
 
 
