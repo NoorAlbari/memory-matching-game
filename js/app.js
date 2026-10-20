@@ -18,6 +18,8 @@ let loser = false
 
 
 
+
+
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
         if (boardLocker === true) {
@@ -28,7 +30,12 @@ cardsElement.forEach(function (card) {
         }
 
         card.classList.toggle('flipped')
-        flippedCards.push(card)
+        if (card.classList.contains('flipped')) {
+            flippedCards.push(card)
+            console.log('flipped cards '+ flippedCards.length)
+        }
+
+
         console.log(flippedCards.length)
         if (flippedCards.length === 2) {
             boardLocker = true
@@ -41,6 +48,11 @@ cardsElement.forEach(function (card) {
     })
 
 })
+
+
+
+
+
 
 function checkForMatch() {
     const firstCard = flippedCards[0]
@@ -247,16 +259,15 @@ function resetTurn() {
 function resetGame() {
     winPopupElement.style.display = 'none'
     losePopupElement.style.display = 'none'
-    
+
 
     flippedCards = []
     boardLocker = true
     MatchedCards = []
     heart = 0
-    heartCountElement.textContent = heart
     time = 60
+    heartCountElement.textContent = heart
     timerElement.textContent = `Time: ${time}`
-
     cardsElement.forEach(function (card) {
         card.classList.remove('flipped')
 
@@ -264,8 +275,8 @@ function resetGame() {
     })
 
 
-}
 
+}
 
 
 
@@ -275,7 +286,6 @@ function win() {
         winner = true
         loser = false
         setTimeout(() => {
-
             winPopupElement.style.display = 'flex'
         }, 1000)
 
@@ -283,12 +293,12 @@ function win() {
 }
 
 function lose() {
-    if (heart < 0) {
+    if (heart <= 0) {
         boardLocker = true
         loser = true
         winner = false
-        setTimeout(() => {
 
+        setTimeout(() => {
             losePopupElement.style.display = 'flex'
         }, 1000)
     }
@@ -296,20 +306,32 @@ function lose() {
 
 function startTime() {
     const intervalId = setInterval(() => {
-        if (time === 60) {
-            boardLocker = false
-            if(winner === true || loser === true){
-                
-            }
-        }
+        boardLocker = false
+
         if (time === 0) {
             clearInterval(intervalId)
+            losePopupElement.style.display = 'flex'
+            boardLocker = true
             return
         }
+        if (losePopupElement.style.display === 'flex') {
+            clearInterval(intervalId)
+            boardLocker = true
+
+        }
+
+        if (winPopupElement.style.display === 'flex') {
+            clearInterval(intervalId)
+            boardLocker = true
+
+        }
+
+
+
         time--
         timerElement.textContent = `Time: ${time}`
     }, 1000)
 }
 
 startButtonElement.addEventListener('click', startTime)
-playAgainElement.forEach((btn) => { btn.addEventListener('click' , resetGame )})
+playAgainElement.forEach((btn) => { btn.addEventListener('click', resetGame) })
