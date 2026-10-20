@@ -358,23 +358,34 @@ function startTime() {
             clearInterval(intervalId)
             losePopupElement.style.display = 'flex'
             boardLocker = true
-            sound.pause()
-            sound.currentTime = 0
+
+            backgroundMusic.currentTime = 0
+            backgroundMusic.pause()
+            misMatchSound.pause()
+            matchSound.pause()
+            losingSound.play()
             return
         }
         if (losePopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
-            sound.pause()
-            sound.currentTime = 0
+            
+            backgroundMusic.pause()
+            backgroundMusic.currentTime = 0
+            misMatchSound.pause()
+            matchSound.pause()
+            losingSound.play()
 
         }
 
         if (winPopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
-            sound.pause()
-            sound.currentTime = 0
+            backgroundMusic.pause()
+            backgroundMusic.currentTime = 0
+            misMatchSound.pause()
+            matchSound.pause()
+            winningSound.play()
 
 
         }
