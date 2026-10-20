@@ -1,4 +1,4 @@
-![Game Logo](./cards/game logo.jpg)
+![Game Logo](./cards/game%20logo.jpg)
 
 # The Witching Pulse - Memory Matching Game
 
