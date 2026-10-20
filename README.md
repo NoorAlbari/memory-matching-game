@@ -21,7 +21,21 @@ A dark atmospheric memory-matching card game set under a moonlit canopy. Players
 ![Game Logo](./screenshots/the-game-2.png)
 
 
-
 ## Future Enhancements
+* Add Hard Mode and easy Mode
+* Implement some animation 
+
 
 ## Credits
+
+### Audio & Music
+- **Background Music:** `"Temple"` – [River Boy]
+- **Match Sound:** `"Collecting Points"` – [Artist/Source Name or Link]
+- **Mismatch Sound:** `"Goat Screaming From Cult of the Lamb"` – [River Boy]
+- **Winning Sound:** `"You Won"` 
+- **Game Over Sound:** `"Negative Beeps"`
+
+
+### Development & Tools
+- **Game Design & Programming:** [Noor Husain Albari]
+- **Frameworks & Libraries:** JavaScript, HTML, CSS
