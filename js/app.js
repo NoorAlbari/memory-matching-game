@@ -6,70 +6,37 @@ const losePopupElement = document.querySelector('#lose-popup')
 const winPopupElement = document.querySelector('#win-popup')
 const playAgainElement = document.querySelectorAll('.play-again-btn')
 
-
 let flippedCards = []
 let boardLocker = true
 let MatchedCards = []
-let heart = 0
+let heart = 30
 let time = 60
-let winner = false
-let loser = false
-
-
-
 
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
-        if (boardLocker === true) {
+        if (boardLocker || MatchedCards.includes(card) || flippedCards.includes(card)) {
             return
         }
-        if (MatchedCards.includes(card)) {
-            return
-        }
-        if (flippedCards.includes(card)) {
-            return
-        }
+
         card.classList.toggle('flipped')
         if (card.classList.contains('flipped')) {
             flippedCards.push(card)
-            console.log('flipped cards ' + flippedCards.length)
         }
 
-
-        console.log(flippedCards.length)
         if (flippedCards.length === 2) {
             boardLocker = true
             checkForMatch()
             lose()
             win()
         }
-
-
     })
-
 })
 
-// 2. Create a new Audio object and pass the path to your audio file
-// Replace the URL below with your local file path (e.g., 'sounds/click.mp3')
-const backgroundMusic = new Audio('audio/Temple.mp3');
-const matchSound = new Audio('audio/collecting points.mp3');
-const misMatchSound = new Audio('audio/goat-screaming-cult-of-the-lamb.mp3');
-const winningSound = new Audio('audio/you won.mp3');
-const losingSound = new Audio('audio/negative_beeps.mp3');
-
-
-startButtonElement.addEventListener('click', () => {
-    // Rewind the audio to the beginning in case it's already playing
-    backgroundMusic.currentTime = 0;
-
-    // Play the audio file
-    backgroundMusic.play();
-});
-
-
-
-
-
+const backgroundMusic = new Audio('audio/Temple.mp3')
+const matchSound = new Audio('audio/collecting points.mp3')
+const misMatchSound = new Audio('audio/goat-screaming-cult-of-the-lamb.mp3')
+const winningSound = new Audio('audio/you won.mp3')
+const losingSound = new Audio('audio/negative_beeps.mp3')
 
 function checkForMatch() {
     const firstCard = flippedCards[0]
@@ -258,88 +225,59 @@ function checkForMatch() {
 
 }
 
-
 function checkForMismatch() {
     setTimeout(function () {
-        flippedCards[0].classList.remove("flipped")
-        flippedCards[1].classList.remove("flipped")
+        flippedCards[0].classList.remove('flipped')
+        flippedCards[1].classList.remove('flipped')
         boardLocker = false
         flippedCards = []
-        heart = heart - 5
+        heart -= 5
         heartCountElement.textContent = heart
-        misMatchSound.play();
-
-        if (MatchedCards.length < 2) {
-            heart = 0
-            heartCountElement.textContent = heart
-        }
-        console.log("The Cards Do Not Match")
-
+        misMatchSound.play()
     }, 1000)
-
-
 }
-
 
 function resetTurn() {
-
     flippedCards = []
     boardLocker = false
-
 }
-
 
 function resetGame() {
     winPopupElement.style.display = 'none'
     losePopupElement.style.display = 'none'
-
     backgroundMusic.pause()
     backgroundMusic.currentTime = 0
     flippedCards = []
     boardLocker = true
     MatchedCards = []
-    heart = 0
+    heart = 30
     time = 60
     heartCountElement.textContent = heart
     timerElement.textContent = `Time: ${time}`
-    cardsElement.forEach(function (card) {
-        card.classList.remove('flipped')
-
-
-    })
-
+    cardsElement.forEach((card) => card.classList.remove('flipped'))
 
     shuffleCards()
-
 }
-
-
 
 function win() {
     if (MatchedCards.length === 20 || heart >= 200) {
         boardLocker = true
-        winner = true
-        loser = false
         backgroundMusic.pause()
-        winningSound.play()
         setTimeout(() => {
             winPopupElement.style.display = 'flex'
+            winningSound.play()
         }, 1000)
-
     }
 }
 
 function lose() {
     if (heart <= 0) {
         boardLocker = true
-        loser = true
-        winner = false
         backgroundMusic.pause()
         misMatchSound.pause()
-        losingSound.play()
-
         setTimeout(() => {
             losePopupElement.style.display = 'flex'
+            losingSound.play()
         }, 1000)
     }
 }
@@ -351,54 +289,37 @@ function shuffleCards() {
 }
 
 function startTime() {
+    backgroundMusic.currentTime = 0
+    backgroundMusic.play()
+
     const intervalId = setInterval(() => {
         boardLocker = false
-
         if (time === 0) {
             clearInterval(intervalId)
             losePopupElement.style.display = 'flex'
             boardLocker = true
-
-            backgroundMusic.currentTime = 0
-            backgroundMusic.pause()
-            misMatchSound.pause()
-            matchSound.pause()
-            losingSound.play()
             return
         }
+
         if (losePopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
-            
             backgroundMusic.pause()
-            backgroundMusic.currentTime = 0
-            misMatchSound.pause()
-            matchSound.pause()
-            losingSound.play()
-
         }
 
         if (winPopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
             backgroundMusic.pause()
-            backgroundMusic.currentTime = 0
-            misMatchSound.pause()
-            matchSound.pause()
-            winningSound.play()
-
 
         }
 
-
-
         time--
         timerElement.textContent = `Time: ${time}`
-
     }, 1000)
 }
 
 shuffleCards()
 
 startButtonElement.addEventListener('click', startTime)
-playAgainElement.forEach((btn) => { btn.addEventListener('click', resetGame) })
+playAgainElement.forEach((btn) => btn.addEventListener('click', resetGame))
