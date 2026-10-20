@@ -17,6 +17,9 @@ A dark atmospheric memory-matching card game set under a moonlit canopy. Players
 
 ## Screenshots
 
+![Game Logo](./screenshots/the-game.png)
+![Game Logo](./screenshots/the-game-2.png)
+
 
 
 ## Future Enhancements

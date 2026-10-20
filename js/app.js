@@ -297,7 +297,9 @@ function startTime() {
         if (time === 0) {
             clearInterval(intervalId)
             losePopupElement.style.display = 'flex'
+            backgroundMusic.pause()
             boardLocker = true
+            losingSound.play()
             return
         }
 
