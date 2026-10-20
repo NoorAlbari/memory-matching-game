@@ -1,10 +1,22 @@
 const cardsElement = document.querySelectorAll('.card')
 const heartCountElement = document.querySelector('.heart-count')
+const startButtonElement = document.querySelector('#startTimerButton')
+const timerElement = document.querySelector('#timerDisplay')
+const losePopupElement = document.querySelector('#lose-popup')
+const winPopupElement = document.querySelector('#win-popup')
+const playAgainElement = document.querySelectorAll('.play-again-btn')
+
 
 let flippedCards = []
-let boardLocker = false
+let boardLocker = true
 let MatchedCards = []
 let heart = 0
+let time = 60
+let winner = false
+let loser = false
+
+
+
 
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
@@ -20,17 +32,15 @@ cardsElement.forEach(function (card) {
         console.log(flippedCards.length)
         if (flippedCards.length === 2) {
             boardLocker = true
-            lose()
             checkForMatch()
+            lose()
             win()
         }
-        // winAndLose()
+
 
     })
 
-
 })
-
 
 function checkForMatch() {
     const firstCard = flippedCards[0]
@@ -48,7 +58,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-       
+
 
     }
 
@@ -65,7 +75,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-        
+
 
     }
 
@@ -81,7 +91,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-       
+
 
     }
 
@@ -97,7 +107,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-        
+
 
     }
 
@@ -113,7 +123,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-       
+
     }
 
     else if (firstCard.classList.contains('unicorn') && secondCard.classList.contains('unicorn') && firstCard.classList.contains('23') && secondCard.classList.contains('23')) {
@@ -129,7 +139,7 @@ function checkForMatch() {
 
         resetTurn()
 
-       
+
 
     }
 
@@ -145,7 +155,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-       
+
 
     }
 
@@ -161,7 +171,7 @@ function checkForMatch() {
         console.log(MatchedCards)
 
         resetTurn()
-       
+
 
     }
 
@@ -178,7 +188,7 @@ function checkForMatch() {
 
 
         resetTurn()
-      
+
 
     }
 
@@ -192,9 +202,10 @@ function checkForMatch() {
         console.log("The Cards Match")
         console.log(flippedCards)
         console.log(MatchedCards)
+        console.log('heartssss' + heart)
 
         resetTurn()
-      
+
 
 
     }
@@ -207,6 +218,7 @@ function checkForMatch() {
 
 
 }
+
 
 function checkForMismatch() {
     setTimeout(function () {
@@ -225,46 +237,79 @@ function checkForMismatch() {
 
 
 function resetTurn() {
+
     flippedCards = []
     boardLocker = false
 
 }
 
 
-function winAndLose() {
-    if (MatchedCards.length === 20) {
+function resetGame() {
+    winPopupElement.style.display = 'none'
+    losePopupElement.style.display = 'none'
+    
 
-        console.log("You have WON the Game, Good Job")
-        
+    flippedCards = []
+    boardLocker = true
+    MatchedCards = []
+    heart = 0
+    heartCountElement.textContent = heart
+    time = 60
+    timerElement.textContent = `Time: ${time}`
 
-    }
-    else if (heart > 0) {
+    cardsElement.forEach(function (card) {
+        card.classList.remove('flipped')
 
-        console.log("You have LOST the Game, Better Luck Next time")
 
-    }
+    })
+
+
 }
 
 
 
-function win(){
-    if (MatchedCards.length === 20 || heart >= 100) {
-        console.log("You have WON the Game, Good Job")
-        
 
+function win() {
+    if (MatchedCards.length === 20 || heart >= 200) {
+        boardLocker = true
+        winner = true
+        loser = false
+        setTimeout(() => {
+
+            winPopupElement.style.display = 'flex'
+        }, 1000)
 
     }
 }
 
-function lose(){
+function lose() {
     if (heart < 0) {
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaa")
+        boardLocker = true
+        loser = true
+        winner = false
+        setTimeout(() => {
 
+            losePopupElement.style.display = 'flex'
+        }, 1000)
     }
 }
 
+function startTime() {
+    const intervalId = setInterval(() => {
+        if (time === 60) {
+            boardLocker = false
+            if(winner === true || loser === true){
+                
+            }
+        }
+        if (time === 0) {
+            clearInterval(intervalId)
+            return
+        }
+        time--
+        timerElement.textContent = `Time: ${time}`
+    }, 1000)
+}
 
-
-
-
-
+startButtonElement.addEventListener('click', startTime)
+playAgainElement.forEach((btn) => { btn.addEventListener('click' , resetGame )})

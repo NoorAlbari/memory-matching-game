@@ -4,7 +4,9 @@ header {
     z-index: 999;
     /*background-color:#3F242A ;*/
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 
@@ -24,11 +26,9 @@ body {
 
 /* Heart Counter Badge */
 .heart-badge {
-    position: absolute;
     top: 10px;
     right: 10px;
-    display: inline-flex;
-    align-items: center;
+    display: flex;
     gap: 6px;
     background-color: #3b2a45;
     padding: 4px 10px 4px 6px;
@@ -37,6 +37,7 @@ body {
     box-shadow: 0 3px 0 #120914;
     /* retro hard drop shadow */
     user-select: none;
+    
 }
 
 /* Heart Icon */
@@ -125,4 +126,109 @@ body {
 .card:hover {
     /*moves the element straight upward by 4 pixels*/
     transform: translateY(-4px);
+}
+
+
+/* Hidden state */
+.popup-hidden {
+    display: none;
+}
+
+/* Visible state toggled by JavaScript */
+.popup-active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dim background */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+#left {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+
+}
+
+#right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+button{
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    background-color: #3b2a45;
+    padding: 4px 10px 4px 6px;
+    border-radius: 14px;
+    border: 3px solid #190f1d;
+    box-shadow: 0 3px 0 #120914;
+    /* retro hard drop shadow */
+    user-select: none;
+    color: #e8a573;
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 #190f1d;
+    align-items: center;
+
+}
+
+#timerDisplay {
+       top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    background-color: #3b2a45;
+    padding: 4px 10px 4px 6px;
+    border-radius: 14px;
+    border: 3px solid #190f1d;
+    box-shadow: 0 3px 0 #120914;
+    /* retro hard drop shadow */
+    user-select: none;
+    color: #e8a573;
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0 #190f1d;
+    align-items: center;
+
+}
+
+
+.popup{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.popup-box{
+    background: white;
+    padding: 20px;
+    width: 70%;
+    max-width: 400px;
 }
