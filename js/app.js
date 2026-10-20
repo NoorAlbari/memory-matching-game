@@ -274,7 +274,8 @@ function resetGame() {
 
     })
 
-
+    
+        shuffleCards()
 
 }
 
@@ -304,6 +305,12 @@ function lose() {
     }
 }
 
+function shuffleCards() {
+    cardsElement.forEach((card)=>{
+        card.style.order = Math.floor(Math.random() * cardsElement.length)
+    })
+}
+
 function startTime() {
     const intervalId = setInterval(() => {
         boardLocker = false
@@ -330,8 +337,11 @@ function startTime() {
 
         time--
         timerElement.textContent = `Time: ${time}`
+
     }, 1000)
 }
+
+shuffleCards()
 
 startButtonElement.addEventListener('click', startTime)
 playAgainElement.forEach((btn) => { btn.addEventListener('click', resetGame) })
