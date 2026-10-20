@@ -18,8 +18,6 @@ let loser = false
 
 
 
-
-
 cardsElement.forEach(function (card) {
     card.addEventListener('click', function () {
         if (boardLocker === true) {
@@ -51,6 +49,23 @@ cardsElement.forEach(function (card) {
 
 })
 
+// 2. Create a new Audio object and pass the path to your audio file
+// Replace the URL below with your local file path (e.g., 'sounds/click.mp3')
+const backgroundMusic = new Audio('audio/Temple.mp3');
+const matchSound = new Audio('audio/collecting points.mp3');
+const misMatchSound = new Audio('audio/goat-screaming-cult-of-the-lamb.mp3');
+const winningSound = new Audio('audio/you won.mp3');
+const losingSound = new Audio('audio/negative_beeps.mp3');
+
+
+startButtonElement.addEventListener('click', () => {
+    // Rewind the audio to the beginning in case it's already playing
+    backgroundMusic.currentTime = 0;
+
+    // Play the audio file
+    backgroundMusic.play();
+});
+
 
 
 
@@ -65,6 +80,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -82,6 +98,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -98,6 +115,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -114,6 +132,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -130,6 +149,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -145,6 +165,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 23
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -162,6 +183,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 25
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -178,6 +200,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart += 20
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -194,6 +217,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart = heart + (heart * 0.5)
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -211,6 +235,7 @@ function checkForMatch() {
         MatchedCards.push(firstCard)
         MatchedCards.push(secondCard)
         flippedCards = []
+        matchSound.play()
         heart = heart - (heart * 0.5)
         heartCountElement.textContent = heart
         console.log("The Cards Match")
@@ -242,7 +267,9 @@ function checkForMismatch() {
         flippedCards = []
         heart = heart - 5
         heartCountElement.textContent = heart
-        if (MatchedCards.length != 2) {
+        misMatchSound.play();
+
+        if (MatchedCards.length < 2) {
             heart = 0
             heartCountElement.textContent = heart
         }
@@ -266,7 +293,8 @@ function resetGame() {
     winPopupElement.style.display = 'none'
     losePopupElement.style.display = 'none'
 
-
+    backgroundMusic.pause()
+    backgroundMusic.currentTime = 0
     flippedCards = []
     boardLocker = true
     MatchedCards = []
@@ -292,6 +320,8 @@ function win() {
         boardLocker = true
         winner = true
         loser = false
+        backgroundMusic.pause()
+        winningSound.play()
         setTimeout(() => {
             winPopupElement.style.display = 'flex'
         }, 1000)
@@ -304,6 +334,10 @@ function lose() {
         boardLocker = true
         loser = true
         winner = false
+        backgroundMusic.pause()
+        misMatchSound.pause()
+        losingSound.play()
+
         setTimeout(() => {
             losePopupElement.style.display = 'flex'
         }, 1000)
@@ -324,17 +358,24 @@ function startTime() {
             clearInterval(intervalId)
             losePopupElement.style.display = 'flex'
             boardLocker = true
+            sound.pause()
+            sound.currentTime = 0
             return
         }
         if (losePopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
+            sound.pause()
+            sound.currentTime = 0
 
         }
 
         if (winPopupElement.style.display === 'flex') {
             clearInterval(intervalId)
             boardLocker = true
+            sound.pause()
+            sound.currentTime = 0
+
 
         }
 

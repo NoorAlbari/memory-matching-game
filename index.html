@@ -6,7 +6,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="./css/style.css">
      <script defer src="./js/app.js"></script>
-     <title>Memory Matching Game</title>
+     <title>The Witching Pulse</title>
 </head>
 
 <body>
@@ -22,9 +22,10 @@
           </div>
           <div id="left">
                <div class="header" id="timerDisplay">Time: 60</div>
-               <audio id="Sound" src="./audio/Start a Cult.mp3" class="heart-count header" preload="auto"></audio>
-               <button class="heart-count header" id="startTimerButton">Start</button>
+               <div id="audio-btn"><button class="heart-count header" id="startTimerButton">Start</button></div>
           </div>
+          <audio id="misMatchAudio" src="/audio/Into The Mines.mp3"></audio>
+          <audio id="matchAudio" src="audio/Start a Cult.mp3"></audio>
 
 
 
@@ -32,12 +33,7 @@
      <main>
 
           <div class="game-board">
-               <div id="customPopup" class="popup-hidden">
-                    <div class="popup-content">
-                         <p>Warning: Your session is about to expire!</p>
-                         <button onclick="closePopup()">Close</button>
-                    </div>
-               </div>
+
 
                <div class="card witch 20">
                     <img src="./cards/Cover Card.jpg" alt="Mystery card" class="card-front">
@@ -165,7 +161,7 @@
 
           <div class="popup" id="lose-popup">
                <div class="popup-box">
-                    <p>Congratulations! You have Lost the Game</p>
+                    <p>Oh NOOOOOOO! You have Lost the Game</p>
                     <button class="play-again-btn">
                          Play Again
                     </button>

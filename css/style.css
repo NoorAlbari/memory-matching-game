@@ -134,27 +134,6 @@ body {
     display: none;
 }
 
-/* Visible state toggled by JavaScript */
-.popup-active {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    /* Dim background */
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-
 #left {
     display: flex;
     justify-content: space-around;
@@ -227,10 +206,16 @@ button {
 }
 
 .popup-box {
-    background: white;
+    /*background: white; background-color: #19121cad;*/
+    
+    background-color: #3b2a45;
     padding: 20px;
     width: 70%;
     max-width: 400px;
+    border-radius: 14px;
+    box-shadow: 0 3px 0 #120914;
+    align-items: center;
+    
 }
 
 
