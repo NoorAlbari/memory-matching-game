@@ -28,11 +28,13 @@ cardsElement.forEach(function (card) {
         if (MatchedCards.includes(card)) {
             return
         }
-
+        if (flippedCards.includes(card)) {
+            return
+        }
         card.classList.toggle('flipped')
         if (card.classList.contains('flipped')) {
             flippedCards.push(card)
-            console.log('flipped cards '+ flippedCards.length)
+            console.log('flipped cards ' + flippedCards.length)
         }
 
 
@@ -238,8 +240,12 @@ function checkForMismatch() {
         flippedCards[1].classList.remove("flipped")
         boardLocker = false
         flippedCards = []
-        heart = heart - 10
+        heart = heart - 5
         heartCountElement.textContent = heart
+        if (MatchedCards.length != 2) {
+            heart = 0
+            heartCountElement.textContent = heart
+        }
         console.log("The Cards Do Not Match")
 
     }, 1000)
@@ -274,8 +280,8 @@ function resetGame() {
 
     })
 
-    
-        shuffleCards()
+
+    shuffleCards()
 
 }
 
@@ -298,7 +304,6 @@ function lose() {
         boardLocker = true
         loser = true
         winner = false
-
         setTimeout(() => {
             losePopupElement.style.display = 'flex'
         }, 1000)
@@ -306,7 +311,7 @@ function lose() {
 }
 
 function shuffleCards() {
-    cardsElement.forEach((card)=>{
+    cardsElement.forEach((card) => {
         card.style.order = Math.floor(Math.random() * cardsElement.length)
     })
 }
